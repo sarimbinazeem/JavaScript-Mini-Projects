@@ -40,8 +40,9 @@ for(let i =0; i< names.length; i++)
     card.style.border = "2px solid black";
     card.style.textAlign = "center";
     card.style.display = "flex";
-card.style.flexDirection = "column";
-    card.style.boxShadow = "0px 10px 30px #525354"
+    card.style.flexDirection = "column";
+    card.style.boxShadow = "0px 10px 30px #525354";
+    card.style.transition = "all 0.3s ease";
 
     let image = document.createElement("img");
     image.setAttribute("src",images[i]);
@@ -72,8 +73,23 @@ card.style.flexDirection = "column";
     button.style.width = "100%";
     button.style.cursor = "pointer";
 
+    button.addEventListener("click", () =>
+    {
+        if(button.innerText === "Buy Now")
+        {
+            button.innerText = "✓ Added to Cart";
+            button.style.backgroundColor = "green";
+            button.style.color = "white";
+        }
+        else
+        {
+            button.innerText = "Buy Now";
+            button.style.backgroundColor = "white";
+            button.style.color = "black";
+        }
+    });
+
     card.append(image,title,price,button);
-
-
+    
     container.appendChild(card);
 }
